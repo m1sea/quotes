@@ -56,7 +56,7 @@ export const getThemeStyles = (color: Theme | null, border: boolean): string => 
     return `
       .container {
         background-color: #${color.background};
-        border: ${border ? "3px solid #" + color.symbol : "1px solid rgba(0, 0, 0, 0.2)"};
+        border: ${border ? "3px solid #" + color.symbol : "none"};
       }
       .container h3 {
         color: #${color.quote};
@@ -73,7 +73,7 @@ export const getThemeStyles = (color: Theme | null, border: boolean): string => 
   return `
     .container {
       background-color: #${themes.default.background};
-      border: ${border ? "3px solid #" + themes.default.symbol : "1px solid rgba(0, 0, 0, 0.2)"};
+      border: ${border ? "3px solid #" + themes.default.symbol : "none"};
     }
     .container h3 {
       color: #${themes.default.quote};
@@ -88,7 +88,7 @@ export const getThemeStyles = (color: Theme | null, border: boolean): string => 
     @media (prefers-color-scheme: dark) {
       .container {
         background-color: #${themes.defaultDarkModeSupport.background};
-        border: ${border ? "3px solid #" + themes.defaultDarkModeSupport.symbol : "1px solid rgba(0, 0, 0, 0.2)"};
+        border: ${border ? "3px solid #" + themes.defaultDarkModeSupport.symbol : "none"};
       }
       .container h3 {
         color: #${themes.defaultDarkModeSupport.quote};

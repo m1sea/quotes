@@ -54,9 +54,12 @@ const handler = async (req: VercelRequest, res: VercelResponse) => {
     symbol: symbolColor
   };
 
+  // Convert string 'false' from URL query to boolean false. Defaults to true.
+  const isBorder = typeof border === 'string' ? border !== 'false' : border !== false;
+
   res.setHeader('Content-Type', 'image/svg+xml');
   res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
-  res.send(renderSVG(data, type, theme, border, customColors));
+  res.send(renderSVG(data, type, theme, isBorder, customColors));
 };
 
 export default handler;
