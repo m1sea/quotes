@@ -55,7 +55,7 @@ const handler = async (req: VercelRequest, res: VercelResponse) => {
   };
 
   res.setHeader('Content-Type', 'image/svg+xml');
-  res.setHeader('Cache-Control', `public, max-age=600`);
+  res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
   res.send(renderSVG(data, type, theme, border, customColors));
 };
 

@@ -1,4 +1,4 @@
-import { renderTheme, themes } from './theme/awesome-card';
+import { renderTheme, themes, getRandomTheme } from './theme/awesome-card';
 import { renderHorizontal } from './type/horizontal-card';
 import { renderVertical } from './type/vertical-card';
 
@@ -20,7 +20,9 @@ export const renderSVG = (
 ) => {
   const { quote, author } = data;
 
-  const color = renderTheme(theme, customColors);
+  // If no theme is explicitly chosen, choose a random one.
+  const chosenTheme = theme || getRandomTheme();
+  const color = renderTheme(chosenTheme, customColors);
 
   switch (type) {
     case 'vertical':

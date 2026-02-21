@@ -16,6 +16,14 @@ export interface CustomColors {
 
 export const themes: Record<string, Theme> = themesData;
 
+export const getRandomTheme = (): string => {
+  const themeKeys = Object.keys(themes);
+  // Exclude 'default' and 'defaultDarkModeSupport' for purely aesthetic randomization
+  const randomThemes = themeKeys.filter(t => t !== 'default' && t !== 'defaultDarkModeSupport');
+  const randomIndex = Math.floor(Math.random() * randomThemes.length);
+  return randomThemes[randomIndex];
+};
+
 export const renderTheme = (theme: keyof typeof themes, customColors?: CustomColors): Theme | null => {
   let baseTheme: Theme;
 
